@@ -48,13 +48,15 @@ week01
    <pre><code>- 이해하기 쉽게 코드에 주석 달기
    - 남들이 보기에도 좋지만 주석을 달면 나중의 내가 편하니까요..🥲
    - 사용하는 변수, 함수 설명 주석 달기
-   - 혹시 모르니 각자 로컬에서 브랜치 만들어서 알고리즘 풀기 
+   - 각자 로컬에서 브랜치 만들어서 알고리즘 풀기 
    </code></pre>
 
-3. git pull request 보내기<br/>
-   <pre><code>git push origin main</code></pre>
+3. git push<br/>
+   <pre><code>git push origin mybranch</code></pre>
 
-4. 팀별로 일주일에 최소 한번 코드 리뷰 진행<br/>
+4. compare & pull request<br/>
+
+5. 팀별로 일주일에 최소 한번 코드 리뷰 진행<br/>
 
 <br/><br/>
 
