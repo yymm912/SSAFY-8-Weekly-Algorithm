@@ -10,8 +10,9 @@
 공통문제를 풀지 않으면 벌금이 부과됩니다.<br/>
 
 [✔️ 이코테 Github 저장소 가기](https://github.com/ndb796/python-for-coding-test)<br/>
-[✔️ 이번 주 풀어야하는 공통문제 확인하러가기](https://yeomss.notion.site/ad8379f36ddf469ea9736cd889bc1324)<br/>
-[✔️ 이번 주 랜덤 팀 확인하러가기](https://yeomss.notion.site/ad8379f36ddf469ea9736cd889bc1324)
+[✔️ 채널 Notion 보러가기](https://www.notion.so/yeomss/ad8379f36ddf469ea9736cd889bc1324)<br/>
+[✔️ 이번 주 풀어야하는 공통문제 확인하러가기](https://www.notion.so/yeomss/1-34f059d3f2b04dbaae4d17bbcd56827c)<br/>
+
 <br/>
 <br/>
 <br/>
