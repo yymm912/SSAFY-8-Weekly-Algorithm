@@ -36,13 +36,19 @@ week01
 
 <center><h2>💻 참여 방법</h2><center>
 
+> 로컬에 remote 환경 세팅
+
+0. git fork 하기<br/>
+
 1. git clone 하기<br/>
    <pre><code>git clone https://github.com/yymm912/SSAFY-8-Weekly-Algorithm.git</code></pre>
 
 2. 알고리즘 풀기<br/>
 
    <pre><code>- 이해하기 쉽게 코드에 주석 달기
+   - 남들이 보기에도 좋지만 주석을 달면 나중의 내가 편하니까요..🥲
    - 사용하는 변수, 함수 설명 주석 달기
+   - 혹시 모르니 각자 로컬에서 브랜치 만들어서 알고리즘 풀기 
    </code></pre>
 
 3. git pull request 보내기<br/>
