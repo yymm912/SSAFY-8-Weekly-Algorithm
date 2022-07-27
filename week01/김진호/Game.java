@@ -9,7 +9,7 @@ public class Game {
 	static int arr[][]; // 입력 배열
 	static int visited[][]; // 방문 체크 배열
 	static int n, m;
-	static int direction;
+	static int direction; // 방향 체크 
 	static int cnt;
 	static int dy[] = { -1, 0, 1, 0 }; // delta 
 	static int dx[] = { 0, 1, 0, -1 }; // delta
@@ -42,7 +42,6 @@ public class Game {
 			}
 		}
 //////////////////////////////////////////////// 입력 끝 ////////////////////////////////////////////////
-		
 		while (true) {
 			if (direction == 3) // 북 서 남 동를 반복
 				direction = 0;
