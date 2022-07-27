@@ -63,7 +63,8 @@ week01
 
 <center><h2>📕 Commit Convention</h2><center>
 
-> 해당 컨벤션을 꼭 지켜주세요.
+> 해당 컨벤션을 꼭 지켜주세요. <br/>
+> 한 문제당 하나의 commit 부탁드립니다.
 
 ```
 git commit -m "본인 이름: 문제종류 (문제번호) 문제제목"
