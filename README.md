@@ -38,7 +38,11 @@ week01
 
 > 로컬에 remote 환경 세팅
 
-0. git fork 하기 (upstream 저장소 설정) <br/>
+0. git fork 하기
+   - git fork 시에는 upstream 저장소 설정
+   - 아예 본 레포 클론해서 push 해도 괜찮
+   - 아래 내용들은 참고용입니다. 각자 clone 상황에 맞게 push 해주세요.
+   <br/>
 
 1. git clone 하기<br/>
    <pre><code>git clone https://github.com/yymm912/SSAFY-8-Weekly-Algorithm.git</code></pre>
@@ -53,7 +57,8 @@ week01
    </code></pre>
 
 3. git push<br/>
-   <pre><code>git push origin mybranch</code></pre>
+   <pre><code>git push origin main</code></pre>
+   <pre><code>git push upstream main</code></pre>
 
 4. compare & pull request<br/>
 
