@@ -9,7 +9,7 @@ import java.util.Scanner;
 //
 //7755
 //-> READY
-
+ 
 
 public class BJ18406_럭키스트레이트 {
 	static String N;
