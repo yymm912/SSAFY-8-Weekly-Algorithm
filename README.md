@@ -15,7 +15,6 @@
 
 <br/>
 <br/>
-<br/>
 
 <center><h2>📝 폴더 관리</h2><center>
 회차별로 폴더가 만들어집니다.<br/>
@@ -39,7 +38,11 @@ week01
 
 > 로컬에 remote 환경 세팅
 
-0. git fork 하기<br/>
+0. git fork 하기
+   - git fork 시에는 upstream 저장소 설정
+   - 아예 본 레포 클론해서 push 해도 괜찮
+   - 아래 내용들은 참고용입니다. 각자 clone 상황에 맞게 push 해주세요.
+   <br/>
 
 1. git clone 하기<br/>
    <pre><code>git clone https://github.com/yymm912/SSAFY-8-Weekly-Algorithm.git</code></pre>
@@ -47,14 +50,15 @@ week01
 2. 알고리즘 풀기<br/>
 
    <pre><code>- 이해하기 쉽게 코드에 주석 달기
-   - 남들이 보기에도 좋지만 주석을 달면 나중의 내가 편하니까요..🥲
-   - 사용하는 변수, 함수 설명 주석 달기
+   - 남들이 보기에도 좋지만 주석을 달면 나중의 내가 편하니까요..😢
+   - 사용하는 변수, 함수 설명 달기
    - 각자 로컬에서 브랜치 만들어서 알고리즘 풀기 
    - fetch 수시로 하기
    </code></pre>
 
 3. git push<br/>
-   <pre><code>git push origin mybranch</code></pre>
+   <pre><code>git push origin main</code></pre>
+   <pre><code>git push upstream main</code></pre>
 
 4. compare & pull request<br/>
 
@@ -64,7 +68,8 @@ week01
 
 <center><h2>📕 Commit Convention</h2><center>
 
-> 해당 컨벤션을 꼭 지켜주세요.
+> 해당 컨벤션을 꼭 지켜주세요. <br/>
+> 한 문제당 하나의 commit 부탁드립니다.
 
 ```
 git commit -m "본인 이름: 문제종류 (문제번호) 문제제목"
