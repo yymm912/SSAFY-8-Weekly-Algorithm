@@ -80,7 +80,7 @@ git commit -m "본인 이름: 문제종류 (문제번호) 문제제목"
 
 ```
 이것이 코딩 테스트다: TC
-SW Expert Academy: SE
+SW Expert Academy: SW
 백준: BJ
 프로그래머스: PG
 정올: JO
