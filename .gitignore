@@ -15,3 +15,7 @@ _book
 *.mobi
 *.pdf
 /bin/
+
+# custom
+.classpath
+.project
