@@ -38,7 +38,9 @@ week01
 
 > 로컬에 remote 환경 세팅
 
-0. git fork 하기
+0. git fork 하기 & upstream 설정
+   <pre><code>git remote add upstream https://github.com/yymm912/SSAFY-8-Weekly-Algorithm.git</code></pre>
+
    - git fork 시에는 upstream 저장소 설정
    - 아래 내용들은 참고용입니다. 각자 clone 상황에 맞게 push 해주세요.
    <br/>
