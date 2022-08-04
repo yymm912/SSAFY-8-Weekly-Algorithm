@@ -31,10 +31,10 @@ public class bj_2343_guitar_lesson {
 			total += b;
 		}
 
-		int std = (total + max) / 2; // standard 블루레이 길이, 정답변수
+		int std = (total + max) / 2; // standard 블루레이 길이, 정답변수, 초기 값은 total+max의 중간값
 		int start = max, end = total;
 
-		while (start <= end) { // mid 조건
+		while (start <= end) { // 시작범위가 끝 값을 넘어갈때 까지 계속 탐색.
 			int blu_ray = 0; // 계산한 블루레이 갯수
 			int sum = 0; // 블루레이 길이 계산할 변수
 			int idx = 0; // array 접근 할 index 변수
@@ -50,18 +50,21 @@ public class bj_2343_guitar_lesson {
 					sum = 0;
 				}
 			}
-
-			if (sum > 0)
-				blu_ray++;
+			if (sum > 0) //sum에 무언가 더해져있다면 아직 영상이 남아있다는 것.
+				blu_ray++; // blu_ray++
+			
+			//이분탐색
+			//블루레이 길이를 동영상길이 중 최댓값부터 n분까지 계속 하나씩 ++ 하면 찾으면 시간초과
+			//total + max의 중간 값부터 정답을 찾기
 
 			if (blu_ray > M) {
-				start = std +1;
+				start = std +1; //최적의 동영상 길이 시작 범위
 			} else if (blu_ray <= M) {
-				if(std<ans)ans =std;
-				end = std - 1;
+				if(std<ans)ans =std; // blu_ray가 M보다 작거나 같으면 나눌 수 있다는 이야기 = > ans에 min 값 저장
+				end = std - 1; //최적의 동영상 길이 끝 범위
 			}
 
-			std = (start + end) / 2;
+			std = (start + end) / 2; // 중간 값 다시 설정
 		}
 
 		System.out.print(ans);
