@@ -55,7 +55,7 @@ public class BJ_2343_기타레슨 {
 				right = avg - 1;// 넘어서지 않으면 - 1
 
 		}
-		return left; // 최종적으로 남은 좌측값 출력
+		return left; // 최종적으로 남은 좌측값 출력 
 	}
 
 }
