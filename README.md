@@ -11,7 +11,7 @@
 
 [✔️ 이코테 Github 저장소 가기](https://github.com/ndb796/python-for-coding-test)<br/>
 [✔️ 채널 Notion 보러가기](https://www.notion.so/yeomss/744e51fd59ac462cac41d793184aeb06)<br/>
-[✔️ 이번 주 풀어야하는 공통문제 확인하러가기](https://www.notion.so/yeomss/1-6c2879fef3c64fdebb0d1db77f7b55f4)<br/>
+[✔️ 이번 주 풀어야하는 공통문제 확인하러가기](https://www.notion.so/yeomss/3-6-10b12d38353c4f7c9968c453214f5741)<br/>
  
 <br/>
 <br/>
