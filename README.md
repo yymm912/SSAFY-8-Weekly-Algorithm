@@ -11,7 +11,7 @@
 
 [✔️ 이코테 Github 저장소 가기](https://github.com/ndb796/python-for-coding-test)<br/>
 [✔️ 채널 Notion 보러가기](https://www.notion.so/yeomss/744e51fd59ac462cac41d793184aeb06)<br/>
-[✔️ 이번 주 풀어야하는 공통문제 확인하러가기](https://www.notion.so/yeomss/1-6c2879fef3c64fdebb0d1db77f7b55f4)<br/>
+[✔️ 이번 주 풀어야하는 공통문제 확인하러가기](https://www.notion.so/yeomss/3-6-10b12d38353c4f7c9968c453214f5741)<br/>
  
 <br/>
 <br/>
@@ -38,14 +38,15 @@ week01
 
 > 로컬에 remote 환경 세팅
 
-0. git fork 하기
+0. git fork 하기 & upstream 설정
+   <pre><code>git remote add upstream https://github.com/yymm912/SSAFY-8-Weekly-Algorithm.git</code></pre>
+
    - git fork 시에는 upstream 저장소 설정
-   - 아예 본 레포 클론해서 push 해도 괜찮
    - 아래 내용들은 참고용입니다. 각자 clone 상황에 맞게 push 해주세요.
    <br/>
 
 1. git clone 하기<br/>
-   <pre><code>git clone https://github.com/yymm912/SSAFY-8-Weekly-Algorithm.git</code></pre>
+   <pre><code>git clone 본인 fork repository</code></pre>
 
 2. 알고리즘 풀기<br/>
 
