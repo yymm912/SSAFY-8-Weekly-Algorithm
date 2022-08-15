@@ -17,5 +17,6 @@ _book
 /bin/
 
 # custom
-.classpath
-.project
+*/.classpath
+*/.project
+*/.DS_Store
