@@ -1,0 +1,91 @@
+package study;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.StringTokenizer;
+
+public class BJ_1780_종이의개수 {
+	static int N, min, cnt1, cnt0, cntm1;
+	static int[][] map;
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken()); // 3의 배수 정사각 배열 변의 크기
+		
+		// map 선언
+		map = new int[N][N];
+		for (int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < N; j++) {
+				map[i][j] = Integer.parseInt(st.nextToken()); 
+			}
+		}
+		// 재귀 - 분할 정복
+		start(0, 0, N);// N*N의 큰 사각 배열부터 확인
+
+		System.out.println("-1의 개수: "+cntm1);
+		System.out.println("0의 개수: "+cnt0);
+		System.out.println("1의 개수: "+ cnt1);
+		
+	}
+	
+	static void start(int y, int x, int len) { 
+
+		if(len == 1) { // 9개 사분면이 다 다르다면 분할면이 하나가 될 때 개수 계산
+			isOne(y, x);
+			return;
+		}
+		// len * len 크기 사각 배열을 탐색하며 하나라도 다르면 cnt 탐색을 종료,
+		int cnt = -1;
+		int temp = map[y][x];
+		Loop:
+		for (int i = y; i < y+len; i++) {
+			for (int j = x; j < x+len; j++) {
+				if(map[i][j] == temp) cnt++;
+				else break Loop;
+			}
+		}
+		// 첫 요소와 모두 같은 값으로 이루어진 사각 배열이라면 하나로 취급하고 개수 계산
+		if(cnt == len * len - 1) {
+			isOne(y, x);
+			return;
+		}
+		// 9분할 한 사각 배열을 분할하여 부분으로 정복
+		// UP
+		start(y,x,len/3);
+		start(y,x+len/3,len/3);
+		start(y,x+(len/3*2),len/3);
+		// MID
+		start(y+len/3,x,len/3);
+		start(y+len/3,x+len/3,len/3);
+		start(y+len/3,x+(len/3*2),len/3);
+		// DOWN
+		start(y+(len/3*2),x,len/3);
+		start(y+(len/3*2),x+len/3,len/3);
+		start(y+(len/3*2),x+(len/3*2),len/3);
+		
+	}
+	
+	static void isOne(int y, int x) {
+		switch (map[y][x]) {
+		case 1: {
+			cnt1++;
+			break;
+		}
+		case -1: {
+			cntm1++;
+			break;
+		}
+		case 0: {
+			cnt0++;
+			break;
+		}
+		}
+		return;
+	}
+}
