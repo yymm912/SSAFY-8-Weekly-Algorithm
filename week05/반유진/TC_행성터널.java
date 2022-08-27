@@ -1,5 +1,5 @@
 // BOJ 2887번 행성 터널
-// 이코테 - 행성 터널
+// 이코테 - 행성터널
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
