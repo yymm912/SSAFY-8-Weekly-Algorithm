@@ -59,7 +59,7 @@ public class TC_여행계획 {
 		list = new int[M];
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < M; i++) {
-			list[i] = Integer.parseInt(st.nextToken());
+			list[i] = Integer.parseInt(st.nextToken()) - 1;
 		}
 		
 		res = 1;
@@ -79,11 +79,12 @@ public class TC_여행계획 {
 	}
 	
 	static void union(int x, int y) {
-		int rx = findSet(x);
-		int ry = findSet(y);
+		x = findSet(x);
+		y = findSet(y);
 		
-		if(rx != ry) {
-			parents[ry] = rx;
+		if(x != y) {
+			if(x < y) parents[y] = x;
+			else parents[x] = y;
 		}
 	}
 
