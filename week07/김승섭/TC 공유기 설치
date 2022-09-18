@@ -1,0 +1,50 @@
+package 백준;
+/* 어려워서 거의 다 참고함..*/
+/* 다시 풀어보기 */
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class BJ_2110_공유기설치 {
+	static int N, C;
+	static int[] house;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt(); // 집의 수
+		C = sc.nextInt(); // 공유기 개수
+		
+		house = new int[N];
+		
+		for (int i = 0; i < N; i++) {
+			house[i] = sc.nextInt();
+		}
+		Arrays.sort(house); // 인접 비교를 위한 배열 정렬
+		
+		int left = 1; // 인접 집 간 최소 길이 가정
+		int right = house[N-1] - house[0]; // 집 처음과 끝의 최대 길이
+		
+		while(left <= right) {
+			int mid = (left+right) / 2;
+			int prev = house[0]; // 비교 집을 첫번째 집으로 잡는다
+			int ap_cnt = 1; // 설치된 공유기 갯수 [1/C]
+			
+			for (int i = 0; i < N; i++) {
+				int distance = house[i]- prev;// 첫집과 선택 집의 거리
+				if(distance >= mid) { // 기준거리 보다 크면 
+					prev = house[i];  // 기준 집을 다음집으로 옮기고
+					ap_cnt++; 		  // 설치된 공유기 개수를 추가
+				}
+			}
+			
+			if(ap_cnt >= C) { // 설치된 공유기 수가 공유기 수 이상이라면
+				left = mid + 1; // 기준 mid를 오른쪽으로 늘리고
+			}else {
+				right = mid - 1;// 이상이 아니라면 기준을 낮춰 최대 길이를 맞춤.
+			}
+		}
+		System.out.println(right);
+		
+	}
+
+
+}
