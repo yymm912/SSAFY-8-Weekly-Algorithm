@@ -1,0 +1,49 @@
+package 백준;
+
+import java.util.Scanner;
+
+public class BJ_2644_촌수계산 {
+		static int People_num, person1, person2, rel_num, ans;
+		static boolean[][] relation; // 친척 관계를 나타내는 행렬
+		static boolean[] visit; // 방문 여부
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		People_num = sc.nextInt(); // 사람들 수
+		person1 = sc.nextInt(); // 사람1 번호
+		person2 = sc.nextInt(); // 사람2 번호
+		
+		rel_num = sc.nextInt(); // 주어진 관계의 수
+		relation = new boolean[People_num+1][People_num+1];
+		for (int i = 0; i < rel_num; i++) { // 인접행렬로 관계를 표시
+			int parent = sc.nextInt();
+			int son = sc.nextInt();
+			
+			relation[parent][son] = relation[son][parent]  =true;
+		}
+		ans = -1; // 친척이 성립되지 않으면 답은 -1로 출력하도록함
+		visit = new boolean[People_num+1]; // dfs 방문여부 행렬
+		dfs(person1,0);
+		
+		System.out.println(ans);
+
+	}
+	
+	static void dfs(int p1, int cnt) {
+		if(p1 == person2) { // 목표인 사람2를 찾으면
+			ans = cnt; // 이동한 깊이를 출력하도록함.
+			return;
+		}
+		
+		visit[p1] = true;
+		
+		for (int i = 1; i <= People_num; i++) {
+			if(!visit[i] && relation[p1][i]) {
+				visit[i] = true;
+				dfs(i, cnt+1);
+				visit[i] = false;
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,75 @@
+package 백준;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class BJ_2468_안전영역 {
+	static int[][] map;
+	static boolean[][] visited;
+	static int N, cnt;
+	static int[] dy = {-1, 1, 0, 0};
+	static int[] dx = {0, 0, -1, 1};
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		N = Integer.parseInt(br.readLine()); // 지도의 크기
+		int max_height = 0; // 장마일 때 최대 수위
+		map = new int[N][N];
+		for (int i = 0; i < N; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < N; j++) {
+				map[i][j] = Integer.parseInt(st.nextToken());
+				max_height = Math.max(map[i][j], max_height); // 지도 요소를 받으면서 최대 높이를 찾음 [최대 높이까지만 시뮬레이션]
+			}
+		}
+		int max = 1; 
+		for (int h = 1; h <= max_height; h++) { // 최대 수위까지만 시뮬레이션
+			cnt = 0;
+			visited = new boolean[N][N];
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					if(visited[i][j] || map[i][j] <= h) continue;
+					bfs(i, j, h); 
+					cnt++; // 만들어진 섬의 개수 카운트
+				}
+			}
+			max = Math.max(max, cnt); // 해당 수위에서 카운트가 max값보다 크다면 해당 섬의 개수로 반환
+		}
+		
+		System.out.println(max);
+	}
+	
+	static void bfs(int y, int x, int height) { // BFS 탐색을 통해 수위로 구분된 섬의 개수를 셈
+		Queue<Node> queue = new ArrayDeque<>();
+		queue.offer(new Node(y, x));
+		visited[y][x] = true;
+		
+		while(!queue.isEmpty()) {
+			Node cur = queue.poll();
+			y = cur.y;
+			x = cur.x;
+			
+			for (int d = 0; d < 4; d++) {
+				int ny = y + dy[d];
+				int nx = x + dx[d];
+				
+				if(ny < 0 || nx < 0 || ny >= N || nx >= N || visited[ny][nx] || map[ny][nx] <= height) continue;
+				queue.offer(new Node(ny, nx));
+				visited[ny][nx] = true;
+			}
+			
+		}
+		
+	}
+	
+	static class Node{ // 지도 상에서의 위치
+		int y, x;
+		public Node(int y, int x) {
+			this.y = y;
+			this.x = x;
+		}
+	}
+
+}
