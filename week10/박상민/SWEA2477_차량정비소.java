@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class swea_차량정비소_2477 {
+public class SWEA2477_차량정비소 {
 
     static int T, N, M, K, A, B;
     static int[] arrA, arrB;
