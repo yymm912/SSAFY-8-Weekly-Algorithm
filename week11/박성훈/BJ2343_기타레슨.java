@@ -53,7 +53,6 @@ class BJ2343_기타레슨 {
             } else {
                 l = mid + 1;
             }
-
         }
         System.out.println(ans);
     }
