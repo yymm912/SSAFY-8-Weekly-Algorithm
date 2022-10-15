@@ -4,6 +4,7 @@ import java.util.*;
 public class BJ10159_저울 {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static StringBuilder sb = new StringBuilder();
     static StringTokenizer st;
 
     static int N, M;
@@ -35,8 +36,9 @@ public class BJ10159_저울 {
             for(int j = 1; j<= N; j++){
              if(!(board[i][j] || board[j][i])) cnt++;
             }
-            System.out.println(cnt);
+            sb.append(cnt).append('\n');
         }
+        System.out.println(sb);
 
 
     }
