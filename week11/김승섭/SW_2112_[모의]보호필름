@@ -1,0 +1,89 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+ 
+public class Solution {
+    static int D, W, K, map[][], cpymap[][], ans;
+    public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine());
+        for (int tc = 1; tc <= T; tc++) {
+            /***********tc*************/
+            StringTokenizer st= new StringTokenizer(br.readLine());
+            D = Integer.parseInt(st.nextToken());
+            W = Integer.parseInt(st.nextToken());
+            K = Integer.parseInt(st.nextToken());
+            map = new int[D][W];
+            cpymap = new int[D][W];
+            ans = 0;
+            for (int i = 0; i < D; i++) {
+                st= new StringTokenizer(br.readLine());
+                for (int j = 0; j < W; j++) {
+                    map[i][j] = Integer.parseInt(st.nextToken());
+                    cpymap[i][j] = map[i][j];
+                }
+            }
+            ans = Integer.MAX_VALUE;
+            if(isPassed(map)) {
+                ans = 0;
+            }else {
+                choose(0, 0);
+            }
+             
+            System.out.println("#"+tc+" "+ans);
+            /***********tc*************/
+        }
+    }
+    static void choose(int idx, int cnt) {
+        if(ans <= cnt) return;
+        if(idx == D) {
+            if(isPassed(cpymap)) {
+                ans = Math.min(ans, cnt);
+            }
+            return;
+        }
+         
+        // 선택 x
+        choose(idx+1, cnt);
+         
+        // 선택 a
+        for (int i = 0; i < W; i++) {
+            cpymap[idx][i] = 0;
+        }
+        choose(idx+1, cnt+1);
+         
+        // 선택 b
+        for (int i = 0; i < W; i++) {
+            cpymap[idx][i] = 1;
+        }
+        choose(idx+1, cnt+1);
+         
+        for (int i = 0; i < W; i++) {
+            cpymap[idx][i] = map[idx][i];
+        }
+    }
+     
+    private static boolean isPassed(int[][] map) {
+ 
+        for (int x = 0; x < W; x++) {
+            int cnt = 1;
+            boolean able = false;
+            for (int y = D-1; y > 0; y--) {
+                if(map[y][x] == map[y-1][x]) cnt++;
+                else {
+                    cnt = 1;
+                }
+ 
+                if(cnt == K) {
+                    able = true;
+                    break;
+                }
+            }
+            if(!able) return false;
+        }
+ 
+        return true;
+         
+    }
+ 
+}
