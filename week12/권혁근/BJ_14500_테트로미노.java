@@ -12,7 +12,7 @@ public class Main {
 	 static void dfs(int sx, int sy) {
 		 Deque<Item> que=new ArrayDeque<>();
 		 List<XY> xys = new ArrayList<>();
-		 xys.add(new XY(sx,sy));
+		 xys.add(new XY(sx,sy)); 
 		 que.add(new Item(mat[sy][sx], xys));
 		 
 		 while(!que.isEmpty()) {
