@@ -11,24 +11,17 @@ public class BJ17825_주사위윷놀이 {
         static int[] plus = {2,3,2,-1,5};
         static void input() throws IOException{
             st = new StringTokenizer(br.readLine());
-            for (int i = 0; i < 4; i++) {
-                horse[i] = new h(0, 0);
-            }
-            for (int i = 0; i < 10; i++) {
-                move[i] = Integer.parseInt(st.nextToken());
-            }
+            for (int i = 0; i < 4; i++) horse[i] = new h(0, 0);
+            for (int i = 0; i < 10; i++) move[i] = Integer.parseInt(st.nextToken());
 
         }
 
         static class h{
             int num, d;
-
             public h(int num, int d) {
                 this.num = num;
                 this.d = d;
             }
-
-
         }
         static int change(h horse){
             if(horse.num == 10) return 1;
@@ -74,10 +67,7 @@ public class BJ17825_주사위윷놀이 {
                         if(horse[j].d == hor.d ) return false;
                     }
                 }
-
             }
-
-
             hor.num = s;
             hor.d = change(hor);
             return true;
@@ -93,14 +83,9 @@ public class BJ17825_주사위윷놀이 {
                 if(horse[i].num > 40) continue;
                 int temp = horse[i].num;
                 int d = horse[i].d;
-
-
                 if(check(i, horse[i], move[idx])){
-                    if(horse[i].num > 40){
-                        game(idx+1, sum);
-                    }else{
-                        game(idx+1, sum + horse[i].num);
-                    }
+                    if(horse[i].num > 40) game(idx+1, sum);
+                    else game(idx+1, sum + horse[i].num);
                 }
                 horse[i].num = temp;
                 horse[i].d = d;
