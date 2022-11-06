@@ -67,6 +67,8 @@ public class BJ_19238_스타트택시 {
 		}
 
 		// # 전략
+		// # 함수 : simul(), searchGuest(), moveguest(), searchDestination()
+		
 		// 1. simul 함수 손님을 태우고 도착지 내려놓고 반복. 만약 손님을 더이상 찾지 못하는 데 문제에서 주어진 손님 수와 일치 X ->
 		// false 반환. 운행 실패로 -1 출력
 		// 문제에서 주어진 손님 수와 일치 -> true 반환. 그 때의 연료 출력
