@@ -7,30 +7,6 @@ import java.util.Scanner;
 
 public class SWEA2382미생물격리 {
 
-    static class Virus implements Comparable<Virus> {
-        int num;
-        int i, j;
-        int cnt;
-        int dir;
-
-        Virus(int num, int i, int j, int cnt, int dir) {
-            this.num = num;
-            this.i = i;
-            this.j = j;
-            this.cnt = cnt;
-            this.dir = dir;
-        }
-
-        @Override
-        public int compareTo(Virus o) {
-            if (this.num == o.num) {
-                return o.cnt - this.cnt;
-            }
-            return this.num - o.num;
-        }
-
-    }
-
     // (상: 1, 하: 2, 좌: 3, 우: 4)
     static int di[] = { 0, -1, 1, 0, 0 };
     static int dj[] = { 0, 0, 0, -1, 1 };
@@ -116,6 +92,30 @@ public class SWEA2382미생물격리 {
             return 3;
         }
         return -1;
+    }
+    
+    static class Virus implements Comparable<Virus> {
+        int num;
+        int i, j;
+        int cnt;
+        int dir;
+
+        Virus(int num, int i, int j, int cnt, int dir) {
+            this.num = num;
+            this.i = i;
+            this.j = j;
+            this.cnt = cnt;
+            this.dir = dir;
+        }
+
+        @Override
+        public int compareTo(Virus o) {
+            if (this.num == o.num) {
+                return o.cnt - this.cnt;
+            }
+            return this.num - o.num;
+        }
+
     }
 
 }
