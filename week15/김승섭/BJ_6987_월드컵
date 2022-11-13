@@ -1,0 +1,124 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.StringTokenizer;
+/**
+ * 
+ * 1. 무승부는 짝이 있어야한다.
+ * 2. 승 수의 총합과 패 수의 총합은 같아야한다.
+ * 응안됨15%컷
+ *
+ */
+//public class Main {
+//	static boolean isTrue = true;
+//	static int totalWin, totalLos, thrCnt, totalThr;
+//	public static void main(String[] args) throws Exception{
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		for (int r = 0; r < 4; r++) {
+//			StringTokenizer st = new StringTokenizer(br.readLine());
+//			boolean isEven = false;
+//			totalWin = 0;
+//			totalLos = 0;
+//			totalThr = 0;
+//			thrCnt = 0;
+//			for (int i = 0; i < 6; i++) {
+//				int win = Integer.parseInt(st.nextToken());
+//				int thr = Integer.parseInt(st.nextToken());
+//				int los = Integer.parseInt(st.nextToken());
+//				totalWin += win;
+//				totalLos += los;
+//				totalThr += thr;
+//				if(thr>0)thrCnt++;
+//			}
+//			if(thrCnt % 2 == 0 && totalThr % 2 == 0) isEven = true;
+//			if(totalWin == totalLos && isEven) {
+//				System.out.println(1);
+//			}else {
+//				System.out.println(0);
+//			}
+//		}
+//	}
+//}
+
+public class Main{
+	static int win[],lose[],draw[],t1[],t2[];
+	static HashMap<String, String> map;
+	static boolean avail;
+	
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int cnt=0;
+		t1 = new int[15]; // 붙게되는 1번팀
+		t2 = new int[15]; // 붙게되는 2번팀
+		// 각 팀을 곂치지 않게 대전
+		// [cnt]번째 경기에 t1 t2가 붙음
+		for(int i = 0; i < 5;i++) {
+			for(int j = i + 1; j < 6;j++) {
+				t1[cnt]=i;
+				t2[cnt++]=j;
+			}
+		}
+		
+		int totalWin = 0;
+		int totalLos = 0;
+		int totalDrw = 0;
+		
+		for (int i = 0; i < 6; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int win = Integer.parseInt(st.nextToken());
+			int thr = Integer.parseInt(st.nextToken());
+			int los = Integer.parseInt(st.nextToken());
+			totalWin += win;
+			totalLos += los;
+			totalDrw += thr;
+
+			// 총 경기 수가 30판이 아니면 일단 걸러냄
+			if(totalWin+totalLos+totalDrw!=30) avail=false;
+			else dfs(0);
+			
+			// 가능한 경기면 1을, 불가능한 경기이면 0을 출력한다.
+			if(avail) System.out.print(1+" ");
+			else System.out.print(0+" ");
+		}
+	}
+	
+	static void dfs(int idx) {
+		
+		if(avail) return;
+		
+		if(idx==15) {
+			avail=true;
+			return;
+		}
+		// 해당 경기에서의 팀 선택
+		int a = t1[idx];
+		int b= t2[idx];
+
+		// a팀과 b팀이 승리, 무승부, 패배의 모든 경우 수를 탐색
+		if(win[a]>0 && lose[b]>0) {
+			win[a]--;
+			lose[b]--;
+			dfs(idx+1);
+			win[a]++;
+			lose[b]++;
+		}
+
+		if(draw[a]>0 && draw[b]>0) {
+			draw[a]--;
+			draw[b]--;
+			dfs(idx+1);
+			draw[a]++;
+			draw[b]++;
+		}
+
+		if(lose[a]>0 && win[b]>0) {
+			lose[a]--;
+			win[b]--;
+			dfs(idx+1);
+			lose[a]++;
+			win[b]++;
+		}
+	}
+}
+
+
